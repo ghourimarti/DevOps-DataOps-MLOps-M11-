@@ -1,0 +1,30 @@
+name: CI Workflow  # Name of the workflow
+
+on:
+  push:
+    branches:
+      - main  # Runs on push to the main branch
+  pull_request:
+    branches:
+      - main  # Runs on PRs to main branch
+
+jobs:
+  test:
+    runs-on: ubuntu-latest  # Environment for the job
+
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v4  # Checks out the repo
+
+      - name: Set Up Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: "3.9"  # Specify Python version
+
+      - name: Install Dependencies
+        run: |
+          pip install -r requirements.txt  # Install dependencies
+
+      - name: Run Tests
+        run: |
+          pytest  # Run tests using pytest
