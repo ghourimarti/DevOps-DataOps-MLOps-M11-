@@ -1,3 +1,9 @@
+# git fetch origin
+# git pull origin main --rebase
+# git reset --hard origin/main
+
+
+
 echo
 echo "<------- status check ------>"
 
